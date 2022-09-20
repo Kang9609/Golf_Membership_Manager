@@ -1,12 +1,21 @@
 #include <iostream>
-#include "mfrc522.h"
-#include "Listener.h"
+#include "Golf_Membership_Manager.h"
+#include "MembersEntity.h"
 
 int main(void)
 {
-    mfrc522 rfid(new SPI(10, 3000000));             // (CE0의 wPi 번호, spi 통신 속도 = 3MHz)
-    Listener *listener = new Listener(&rfid);
+    // mfrc522 rfid(new SPI(10, 3000000));             // (CE0의 wPi 번호, spi 통신 속도 = 3MHz)
+    // Listener *listener = new Listener(&rfid);
 
+    // Golf_Membership_Manager golf_Membership_Manager;
+
+    // golf_Membership_Manager.run();
+    MembersEntity membersEntity;
+
+    return 0;
+
+}
+/*
     while (1)
     {
         listener->checkEvent();
@@ -14,6 +23,4 @@ int main(void)
         printf("hihi\n");
     }
 
-    
-}
-
+*/
