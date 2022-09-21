@@ -5,11 +5,13 @@
 
 #include "Monitor.h"
 #include "DeviceData.h"
+#include "MemManageService.h"
 
 class Controller
 {
 private:
     Monitor *monitor;
+    MemManageService *memManageService;
 
 
 public:

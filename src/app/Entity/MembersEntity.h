@@ -4,6 +4,7 @@
 #pragma once
 #include <vector>       // container의 일종
 #include <iostream>
+#include <string>
 #include "Memberinfo.h"
 
 class MembersEntity
@@ -17,10 +18,14 @@ public:
     MembersEntity();             
     virtual ~MembersEntity();
     void loadMembersInfo();       // Member에 대한 정보값을 Memory에 로딩하겠다
-    // void addmemberInfo(MemberInfo member);
-    // void delMemberInfo(MemberInfo member);
-    // void makeDBMembersInfo();     // Entity의 저장된 Data를 다시 DB로 넘겨준다
-    void printMemberInfo();       // Test 용
+    void addMemberInfo(MemberInfo member);
+    bool delMemberInfo(int *cardNum);
+    void makeToDB();     // Entity의 저장된 Data를 다시 DB로 넘겨준다
+    void printMemberInfo(int index);       // Test 용
+    void printMemberInfo(std::string name);
+    void printMemberInfo(int *cardNum);
+    bool findMemberInfo(int *cardNum); 
+    bool findMemberInfo(std::string name);
 
 };
 

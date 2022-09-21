@@ -6,11 +6,13 @@
 #include "Controller.h"
 #include "CardReader.h"
 #include "Monitor.h"
+#include "ManageButton.h"
 
 class Listener
 {
 private:
     Controller *controller;
+    ManageButton *modeButton;
     CardReader *rfid;
     uint8_t rfidData[16];
 

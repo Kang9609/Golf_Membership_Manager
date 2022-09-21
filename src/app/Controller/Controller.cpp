@@ -4,6 +4,7 @@
 Controller::Controller()
 {
     monitor = new Monitor();
+    memManageService = new MemManageService();
 }
 
 Controller::~Controller()
@@ -13,10 +14,24 @@ Controller::~Controller()
 
 void Controller::updateEvent(DeviceData data)      // Card ID를 넘겨줘야한다
 {
-    std::cout << data.devName << " : ";
-    for(const auto &data : data.devData)
+    if (data.devName == "cardReader")
     {
-        std::cout << data << " ";
+        int cardNumber[5];
+        cardNumber[0] = data.devData[0];
+        for (int i=0; i<5; i++)
+        cardNumber[i] = data.devData[1];
+
+        memManageService->checkCard(cardNumber);
     }
-    std::cout << std::endl;
+
+    if (data.devName == "ModeButton")
+    {
+        memManageService->updateStateEvent("ModeButton");
+    }
+    // std::cout << data.devName << " : ";
+    // for(const auto &data : data.devData)
+    // {
+    //     std::cout << data << " ";
+    // }
+    // std::cout << std::endl;
 }

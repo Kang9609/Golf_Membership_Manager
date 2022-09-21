@@ -5,6 +5,7 @@ Listener::Listener()
 // : rfid(new CardReader(new SPI(10, 3000000))), controller(new Controller()) // 변수 초기화 방법 중 1 | == mfrc522 *rfid = rfid;
 {
     rfid = new CardReader(new SPI(10, 3000000));
+    modeButton = new ManageButton(27, "ModeButton");
     controller = new Controller();
 }
 
@@ -19,6 +20,10 @@ void Listener::checkEvent()
         controller->updateEvent(rfid->getCardNumber());      // 배열의 이름 = 주소
     }
 
+    if (modeButton->checkButton())
+    {
+        controller->updateEvent(modeButton->getButtonData());
+    }
 }
 bool Listener::checkRfid()              // bool = true\false 함수
 {
