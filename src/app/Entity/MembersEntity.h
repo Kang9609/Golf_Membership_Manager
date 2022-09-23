@@ -19,6 +19,7 @@ public:
     virtual ~MembersEntity();
     void loadMembersInfo();       // Member에 대한 정보값을 Memory에 로딩하겠다
     void addMemberInfo(MemberInfo member);
+    void searchMemberInfo(std::string name);
     bool delMemberInfo(int *cardNum);
     void makeToDB();     // Entity의 저장된 Data를 다시 DB로 넘겨준다
     void printMemberInfo(int index);       // Test 용

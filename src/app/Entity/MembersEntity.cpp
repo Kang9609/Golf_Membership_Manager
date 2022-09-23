@@ -84,6 +84,17 @@ bool MembersEntity::findMemberInfo(std::string name)   // 등록되어 있는 �
     return false;
 }
 
+void MembersEntity::searchMemberInfo(std::string name)
+{
+    for (const auto &member : vecMembersList)
+    {
+        if (strcmp(member.name, name.c_str()) == 0)
+        {
+            
+        }
+    }
+}
+
 bool MembersEntity::findMemberInfo(int *cardNum)
 {
     for (const auto &member : vecMembersList)
