@@ -5,7 +5,7 @@ Golf_Membership_Manager::Golf_Membership_Manager()
 {
     // rfid = new mfrc522(new SPI (10, 3000000));
     // listener = new Listener(rfid);
-    listener = new Listener();
+    //listener = new Listener();
 }
 
 Golf_Membership_Manager::~Golf_Membership_Manager()

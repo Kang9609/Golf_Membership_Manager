@@ -1,10 +1,12 @@
 #include "MemManageService.h"
 #include <string.h>
 
-MemManageService::MemManageService()
+MemManageService::MemManageService(ComDev *comDev, LCD *lcd)
 {
     membersEntity = new MembersEntity();
     membersManagerState = CARD_READER;
+    this->comDev = comDev;
+    this->lcd = lcd;
     count = 10000;
 }
 
@@ -13,24 +15,32 @@ MemManageService::~MemManageService()
 
 }
 
+
 void MemManageService::updateStateEvent(std::string devName)
 {
+    char buff[30];
     switch (membersManagerState)
     {
         case CARD_READER:
             if (devName == "ModeButton")
-            {
+            {   
+                
                 membersManagerState = CARD_REGISTER;
                 printf("changed to Card_Register_State\n");
+                sprintf(buff, "Register_State     \n");
+                lcd->WriteStringXY(1, 0, buff);
                 
             }
         break;
 
         case CARD_REGISTER:
             if (devName == "ModeButton")
-            {
+            {   
+                
                 membersManagerState = CARD_READER;
                 printf("changed to Card_Reader_State\n");
+                sprintf(buff, "Reader_State     \n");
+                lcd->WriteStringXY(1, 0, buff);
             }
         break;
     }
@@ -46,6 +56,7 @@ void MemManageService::checkCard(int *cardNum)
            {
                 printf("Resgistered Member\n");
                 membersEntity->printMemberInfo(cardNum);
+                comDev->sendData(cardNum);
            }
            else
            {

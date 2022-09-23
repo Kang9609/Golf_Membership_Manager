@@ -15,7 +15,7 @@ private:
 
 
 public:
-    Controller();
+    Controller(MemManageService *memManageService);
     virtual ~Controller();
     void updateEvent(DeviceData data);
 

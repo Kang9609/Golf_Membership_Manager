@@ -1,10 +1,11 @@
 #include "Controller.h"
 #include <iostream>
 
-Controller::Controller()
+Controller::Controller(MemManageService *memManageService)
 {
     monitor = new Monitor();
-    memManageService = new MemManageService();
+   // memManageService = new MemManageService();
+   this->memManageService = memManageService;
 }
 
 Controller::~Controller()
