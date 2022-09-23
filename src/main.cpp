@@ -11,10 +11,8 @@ int main(void)
     Golf_Membership_Manager golf_Membership_Manager;
 
     golf_Membership_Manager.run();
-    
 
-
-    return 0;
+   
 
 }
 /*

@@ -3,6 +3,7 @@
 
 #pragma once
 #include <string>
+#include <vector>
 #include "MembersEntity.h"
 #include "Memberinfo.h"
 
@@ -13,6 +14,8 @@ class MemManageService
 private:
     int membersManagerState;        // State 값이 중요 => 카드 확인 및 등록을 위해
     MembersEntity *membersEntity;
+    std::vector<MemberInfo> vecMembersList;
+    int count;
 
 public:
     MemManageService();
