@@ -9,7 +9,7 @@
 #include "ComDev.h"
 #include "LCD.h"
 
-enum {CARD_READER, CARD_REGISTER};
+enum {CARD_READER, CARD_REGISTER, CARD_SEARCH};
 
 class MemManageService
 {
